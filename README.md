@@ -2,7 +2,7 @@
 
 ## what?
 
-A i18n translation plug and play library for using csv for translations.
+A tiny i18n translation plug and play library for using csv for translations.
 
 ### Install
 
