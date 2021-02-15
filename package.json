@@ -1,0 +1,8 @@
+{
+  "name": "csv-translations",
+  "version": "1.0.0",
+  "dependencies": {
+    "papaparse": "^5.3.0",
+    "strip-bom": "^4.0.0"
+  }
+}
