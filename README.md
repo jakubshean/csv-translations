@@ -40,7 +40,7 @@ const App = () => {
   }
   return <div key={translationLoaded}>
     <h1>{t('page1_header')}</h1>
-    <p onclick={}>current language is {currentLanguage}, click me to change.</p>
+    <p onclick={changeLanguage}>current language is {currentLanguage}, click me to change.</p>
   </div>
 }
 ```
