@@ -3,25 +3,29 @@ import stripBom from 'strip-bom'
 
 let languages = {}
 let defaultLanguage = 'en-US'
+let localstorageKey = 'LOCALIZATION_CONSTANT_KEY'
 export let currentLanguage = defaultLanguage
 
-export const t = key => {
+export const t = localizationKey => {
   const languageDict = languages[currentLanguage]
   if (!languageDict) return '__NOT_TRANSLATED__'
-  const value = languageDict[key]
+  const value = languageDict[localizationKey]
   if (!value) return '__NOT_TRANSLATED__'
   return value
 }
-export const setTranslationLanguage = (key, locale, optionalCallback) => {
-  localStorage.setItem(key, locale)
+export const setTranslationLanguage = (locale, optionalCallback) => {
+  localStorage.setItem(localstorageKey, locale)
   currentLanguage = locale
   if (optionalCallback) optionalCallback()
 }
 
-export const initialize = async (key, csvLocation) => {
-  const locale = localStorage.getItem(key)
+export const initialize = async (csvLocation, optionalLocalStorageKey) => {
+  if(optionalLocalStorageKey) {
+    localstorageKey = optionalLocalStorageKey
+  }
+  const locale = localStorage.getItem(localstorageKey)
   if (locale) {
-    setTranslationLanguage(key, locale)
+    setTranslationLanguage(locale)
     return
   }
   let content = await (await fetch(csvLocation)).text()

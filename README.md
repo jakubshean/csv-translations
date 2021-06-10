@@ -24,6 +24,8 @@ page1_header,"hello world","世界你好"
 ```js
 import { initialize, t, currentLanguage, setTranslationLanguage } from 'csv-translations'
 
+const LOCALIZATION_CONSTANT = 'LOCALIZATION_CONSTANT'
+
 const App = () => {
   const [translationLoaded, setTranslationLoaded] = useState(0)
   useEffect(() => {
